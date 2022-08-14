@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Interest Rate Predictor</title>
+  <style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+
+<body>
+  <span class="d-block p-3 bg-primary text-white">
+    <h3>Rate of Interest Predictor</h3>
+  </span>
+  <form style="padding: 25px" action="http://127.0.0.1:5000/interest" method="get">
+    <div class="form-group row">
+      <label for="amountRequested" class="form-label">Amount Requested</label>
+      <div class="mb-3">
+        <input type="number" step="0.01" name="amount_requested" class="form-control " id="amountRequested"
+          placeholder="Amount Requested" required>
+      </div>
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+    <fieldset class="form-group">
+
+      <legend class="col-form-label radio-inline">Loan Length</legend>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="loan_length" id="36 months" value="0" checked>
+        <label class="form-check-label" for="36 months">36 months</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="loan_length" id="60 months" value="1" checked>
+        <label class="form-check-label" for="60 months">60 months</label>
+      </div>
+
+
+    </fieldset>
+    <br />
+
+    <label for="loanPurpose" class="col-sm-2 col-form-label">Loan Purpose</label>
+    <div>
+      <select name="loan_purpose" class="custom-select custom-select my-2 mr-sm-2" required>
+        <option value="0">Car</option>
+        <option value="1">Credit Card</option>
+        <option value="2">Debt Consolidation</option>
+        <option value="3">Educational</option>
+        <option value="4">Home Improvement</option>
+        <option value="5">House</option>
+        <option value="6">Major Purchase</option>
+        <option value="7">Medical</option>
+        <option value="8">Moving</option>
+        <option value="9">Other</option>
+        <option value="10">Small Business</option>
+        <option value="11">Vacation</option>
+        <option value="12">Wedding</option>
+      </select>
+    </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="debtToIncomeRatio" class="form-label">Debt to Income Ratio</label>
+      <div class="mb-3">
+        <input type="number" step="0.01" name="debt_to_income_ratio" class="form-control " id="debtToIncomeRatio"
+          placeholder="Debt to Income Ratio" required>
+      </div>
+      <br />
+      <fieldset class="form-group">
+
+        <legend class="col-form-label pt-0">Home Ownership</legend>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="home_ownership" id="mortgage" value="Mortgage" checked>
+          <label class="form-check-label" for="mortgage">Mortgage</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="home_ownership" id="own" value="own">
+          <label class="form-check-label" for="own">Own</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="home_ownership" id="rent" value="rent">
+          <label class="form-check-label" for="rent">Rent</label>
+        </div>
+    </div>
+    </div>
+    </div>
+    </fieldset>
+    <br />
+    <div class="form-group row">
+      <label for="monthlyIncome" class="form-label">Monthly Income</label>
+      <div class="mb-3">
+        <input type="number" step="0.01" name="monthly_income" class="form-control  " id="monthlyIncome"
+          placeholder="Monthly Income" required>
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="ficoRange" class="form-label">FICO Range</label>
+      <div class="mb-3">
+        <input type="number" step="0.01" name="fico_range" class="form-control  " id="ficoRange" placeholder="FICO Range" required>
+      </div>
+    </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="openCreditLines" class="form-label">Open Credit Lines</label>
+      <div class="mb-3">
+        <input type="number" step="0.01" name="open_credit_lines" class="form-control" id="openCreditLines"
+          placeholder="Open Credit Lines" required>
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="revolvingCreditBalance" class="form-label">Revolving Credit Balance</label>
+      <div class="mb-3">
+        <input type="number" step="0.01" name="revolving_credit_balance" class="form-control  " id="revolvingCreditBalance"
+          placeholder="Open Credit Lines" required>
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="inquiriesInLast6Months" class="form-label">Inquiries In Last 6 Months</label>
+      <div class="mb-3">
+        <input type="number" step="0.01" name="inquiries_in_last_6_months" class="form-control" id="inquiriesInLast6Months"
+          placeholder="Inquiries In Last 6 Months" required>
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="employmentLength" class="col-form-label">Employment Length</label>
+      <div>
+        <select name="employment_length" class="custom-select custom-select my-2 mr-sm-2" required>
+          <option value="0.5">less than 1 year</option>
+          <option value="1">1 year</option>
+          <option value="2">2 years</option>
+          <option value="3">3 years</option>
+          <option value="4">4 years</option>
+          <option value="5">5 years</option>
+          <option value="6">6 years</option>
+          <option value="7">7 years</option>
+          <option value="8">8 years</option>
+          <option value="9">9 years</option>
+          <option value="10">10+ years</option>
+        </select>
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
